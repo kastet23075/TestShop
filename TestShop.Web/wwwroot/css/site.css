@@ -1,0 +1,194 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.08);
+}
+
+.link-edit-product {
+    margin-right: 3px;
+    font-size: large;
+}
+
+.link-delete-product {
+    font-size: large;
+}
+
+.actions {
+    text-align: center;
+}
+
+.info-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+}
+
+.button-right-side {
+    float: right;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown:hover {
+    background-color: #EDEDED;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #EDEDED;
+    min-width: 160px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.email-input.input-validation-error + i:before {
+    content: "\f05e";
+    position: absolute;
+    right: -20px;
+    top: 8px;
+    color: red;
+}
+
+.email-input.valid + i:before {
+    content: "\f00c";
+    position: absolute;
+    right: -20px;
+    top: 8px;
+    color : green;
+}
+
+input.shop-count-product-mask {
+    width: 60px;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.button-size-block {
+    width: 110px;
+    margin: auto;
+}
+
+.cart-items {
+    display: flow-root;
+}
+
+.accordeon-body {
+    display: none;
+}
+
+.cart-history-order-block {
+    cursor: pointer;
+}
+
+.accordeon-head:hover {
+    background-color: #dee2e6;
+}
+
+.accordeon-head {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cart-history-total-price {
+    width: 200px;
+}

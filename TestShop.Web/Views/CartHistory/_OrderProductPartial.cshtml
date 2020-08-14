@@ -1,0 +1,28 @@
+﻿@using TestShop.Application.Models.CartHistory
+@model IList<OrderProductModel>
+
+<table class="table table-striped table-bordered cart-index-products-table text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th class="col-8">Name</th>
+            <th class="col-2">Price</th>
+            <th class="col-2">Count</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-8 text-left">
+                @item.Name
+            </td>
+            <td class="col-2">
+                @item.Price.ToString("#0.##")
+            </td>
+            <td class="col-2">
+                @item.Count
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

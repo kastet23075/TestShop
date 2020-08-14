@@ -1,0 +1,48 @@
+﻿@using TestShop.Application.CustomExtensions
+@model TestShop.Application.Models.User.UserEditModel
+@{
+    ViewData["Title"] = "Edit user " + Model.Email;
+}
+
+<div class="info-message"></div>
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+
+<form method="POST" class="edit-user-form" action="javascript:void(null);">
+    <input asp-for="Id" type="hidden" />
+    <div class="form-group row">
+        <label class="col-sm-1 cudtom-control-label">Roles</label>
+        <div class="col-sm">
+            @foreach (var role in Model.Roles)
+            {
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" asp-for="Role" class="custom-control-input" value="@role" name="Role" id="@role" />
+                    <label class="custom-control-label" for="@role">
+                        @role
+                    </label>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success edit-user-submit">Save</button>
+        <button class="btn btn-primary lock-user-link-edit"
+                data-id="@Model.Id"
+                data-is-lock="@Model.IsLock.ToStringLower()">
+            @(Model.IsLock ? "Unlock" : "Lock")
+        </button>
+        <a asp-action="Index" class="btn btn-secondary button-right-side">Back to list</a>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script>
+        window.userEdit.variables = {
+            userLockUrl: '@Url.Action("Lock")',
+            userEditUrl: '@Url.Action("Edit")'
+        }
+        window.userEdit.initialize();
+    </script>
+}

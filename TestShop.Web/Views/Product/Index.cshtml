@@ -1,0 +1,38 @@
+﻿@using TestShop.Application.Models.Product
+@model IList<ProductModel>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped table-bordered table-elements-item">
+    <thead class="thead-dark">
+        <tr>
+            <th class="col-md-10">Name</th>
+            <th class="col-md-1">Price</th>
+            <th class="col-md-1">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price.ToString("#0.##")
+                </td>
+                <td class="actions">
+                    <a href="@Url.Action("Edit", "Product", new {id = item.Id})" class="fas fa-pen link-edit-product"></a>
+                    <a href="@Url.Action("Delete", "Product", new {id = item.Id})" class="far fa-trash-alt link-delete-product"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="control-label">
+    Total items: @Model.Count
+    <a asp-action="Add" class="btn btn-primary button-right-side">Add product</a>
+</div>

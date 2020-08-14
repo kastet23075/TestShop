@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Is accepted";
+}
+
+<div class="alert alert-info">Your order is accepted! Go to <a href="@Url.Action("Index", "Shop")">shop</a></div>
+<div class="button-size-block button-right-side">
+    <a href="@Url.Action("Index", "CartHistory")"
+       class="btn btn-primary btn-block">
+        My orders
+    </a>
+</div>

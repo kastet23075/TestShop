@@ -1,0 +1,53 @@
+﻿@using TestShop.Application.Models.Shop
+@model IList<ProductModel>
+
+<div class="info-message"></div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered text-center">
+        <thead class="thead-dark">
+        <tr class="d-flex">
+            <th class="col-6">Name</th>
+            <th class="col-2">Price</th>
+            <th class="col-2">Count</th>
+            <th class="col-2">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="d-flex">
+                <td class="col-6 text-left">
+                    @item.Name
+                </td>
+                <td class="col-2">
+                    @item.Price.ToString("#0.##")
+                </td>
+                <td class="col-2">
+                    <div>
+                        <a href="#" class="fas fa-minus button-minus"></a>
+                        <input type="text" class="form-control d-inline shop-count-product-mask" value="1" />
+                        <a href="#" class="fas fa-plus button-plus"></a>
+                    </div>
+                </td>
+                <td class="actions col-2">
+                    <div class="button-size-block">
+                        <a href="#" class="btn btn-primary btn-block shop-index-product-add-to-cart" data-id="@item.Id">Add to cart</a>
+                    </div>                    
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts
+{
+    <script>
+        window.shopIndex.variables = {
+            addToCartUrl: '@Url.Action("AddToCart", "Cart")',
+            getProductsCountUrl: '@Url.Action("GetProductsCount", "Cart")'
+        }
+        window.shopIndex.initialize();
+    </script>
+}

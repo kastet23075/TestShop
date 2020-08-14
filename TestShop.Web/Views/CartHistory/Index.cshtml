@@ -1,0 +1,25 @@
+﻿@using TestShop.Application.Models.CartHistory;
+@model IList<CartHistoryViewModel>
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div class="cart-history-order-block">
+            <div class="control-label mb-3 accordeon-head">
+                <i class="fas fa-sort-down"></i>
+                Order #@item.OrderId
+                <span class="button-right-side cart-history-total-price">
+                    Total price: @item.TotalPrice
+                </span>
+            </div>
+            <div class="accordeon-body">
+                @{await Html.RenderPartialAsync("_OrderProductPartial", item.OrderProductModels);}
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-primary">No orders!</div>
+}

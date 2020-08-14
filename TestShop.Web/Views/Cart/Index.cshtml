@@ -1,0 +1,65 @@
+﻿@using TestShop.Application.Models.Cart
+@model IList<CartProductModel>
+
+@if (Model != null && Model.Any())
+{
+    <div class="cart-items">
+        <table class="table table-striped table-bordered cart-index-products-table text-center">
+            <thead class="thead-dark">
+                <tr class="d-flex">
+                    <th class="col-7">Name</th>
+                    <th class="col-2">Price</th>
+                    <th class="col-2">Count</th>
+                    <th class="col-1">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="d-flex">
+                        <td class="col-7 text-left">
+                            @item.ProductModel.Name
+                        </td>
+                        <td class="col-2">
+                            <span class="cart-index-product-price">@item.ProductModel.Price.ToString("#0.##")</span>
+                        </td>
+                        <td class="col-2">
+                            <a href="#" class="fas fa-minus button-minus"></a>
+                            <input type="text"
+                                   class="form-control d-inline shop-count-product-mask"
+                                   value="@item.Count" />
+                            <a href="#" class="fas fa-plus button-plus"></a>
+                        </td>
+                        <td class="actions col-1">
+                            <a href="@Url.Action("RemoveFromCart", "Cart", new {orderId = item.OrderId, productId = item.ProductModel.Id})"
+                               class="far fa-trash-alt">
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="form-group button-right-side">
+            <div class="control-label mb-3">
+                Total price <span class="cart-index-total-price"></span>
+            </div>
+            <div class="button-size-block button-right-side">
+                <a href="@Url.Action("Buy", "Cart", new {orderId = Model[0].OrderId})"
+                   class="btn btn-success btn-block button-right-side button-buy"
+                   data-order-id="@Model[0].OrderId">
+                    Buy
+                </a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-primary">Your cart is empty!</div>
+}
+<div class="button-size-block button-right-side">
+    <a href="@Url.Action("Index", "CartHistory")"
+       class="btn btn-primary btn-block">
+        My orders
+    </a>
+</div>

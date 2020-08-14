@@ -1,0 +1,18 @@
+﻿body {
+}
+
+.email-input.input-validation-error + i:before {
+    content: "\f05e";
+    position: absolute;
+    right: -20px;
+    top: 8px;
+    color: red;
+}
+
+.email-input.valid + i:before {
+    content: "\f00c";
+    position: absolute;
+    right: -20px;
+    top: 8px;
+    color: green;
+}

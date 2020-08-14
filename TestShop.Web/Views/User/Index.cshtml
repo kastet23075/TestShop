@@ -1,0 +1,51 @@
+﻿@using TestShop.Application.CustomExtensions
+@model IList<TestShop.Application.Models.User.UserIndexModel>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th class="col-md-10">Name</th>
+            <th class="col-md-1">Role</th>
+            <th class="col-md-1">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Role
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "User", new {id = item.Id})" class="fas fa-pen link-edit-product"></a>
+                    <a href="#"
+                       class="fas @(item.IsLock ? "fa-unlock" : "fa-lock") lock-user-link-index"
+                       data-id="@item.Id"
+                       data-is-lock="@item.IsLock.ToStringLower()">
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="control-label">
+    Total items: @Model.Count
+</div>
+
+@section Scripts
+{
+    <script>
+        window.userIndex.variables = {
+            userLockUrl: '@Url.Action("Lock")'
+        }
+        window.userIndex.initialize();
+    </script>
+}

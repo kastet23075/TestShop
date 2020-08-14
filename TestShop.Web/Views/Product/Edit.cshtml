@@ -1,0 +1,37 @@
+﻿@model TestShop.Application.Models.Product.ProductModel
+@{
+    var buttonValue = "";
+    if(Model == null || Model.Id == 0)
+    {
+        ViewData["Title"] = "Add product";
+        buttonValue = "Create";
+    }
+    else
+    {
+        ViewData["Title"] = "Edit product";
+        buttonValue = "Edit";
+    }
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+
+<form asp-action="Edit" asp-antiforgery="true">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input asp-for="Id" type="hidden" />
+    <div class="form-group row">
+        <label asp-for="Name" class="col-sm-1 control-label col-form-label"></label>
+        <input asp-for="Name" class="col-sm form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Price" class="col-sm-1 control-label col-form-label"></label>
+        <input asp-for="Price" class="col-sm form-control input-price-mask" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" value="@buttonValue" class="btn btn-success" />
+        <a asp-action="Index" class="btn btn-secondary button-right-side">Back to list</a>
+    </div>
+</form>
